@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: elk
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+      tier: backend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: nginx
+          image: "8kmilesranjith/nginx:v1"
+          ports:
+            - name: http
+              containerPort: 80
