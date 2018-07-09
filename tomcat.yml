@@ -20,6 +20,8 @@ spec:
       containers:
         - name: nginx
           image: "8kmilesranjith/nginx:v1"
+          stdin: true
+          tty: true
           ports:
             - name: http
               containerPort: 80
